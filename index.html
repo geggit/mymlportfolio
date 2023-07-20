@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Certifications | My Website</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="lightbox.css">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      margin: 0;
+      padding: 0;
+      color: black; /* Change this to the desired color */
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 20px;
+      justify-items: center;
+      margin: 20px 0;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .lightbox {
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      overflow: auto;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 80vh;
+      margin: auto;
+      display: block;
+    }
+
+    .lightbox-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .lightbox-content img {
+      max-width: 80%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 36px;
+      cursor: pointer;
+    }
+
+    .lightbox .prev {
+      left: 20px;
+    }
+
+    .lightbox .next {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website: My Certifications (click them)</h1>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="thumbnails">
+      <div class="thumbnail">
+        <img src="Build_Apps_with_SwiftUI.jpeg" alt="Certification 1" onclick="openLightbox(0)">
+      </div>
+      <div class="thumbnail">
+        <img src="Practical_Core_Data_in_SwiftUI.jpeg" alt="Certification 2" onclick="openLightbox(1)">
+      </div>
+      <div class="thumbnail">
+        <img src="The_Complete_2020_Flutter_Bootcamp_with_Dart.jpeg" alt="Certification 3" onclick="openLightbox(2)">
+      </div>
+      <div class="thumbnail">
+        <img src="Master_Course_in_Tableau_10_&_2019_for_Business_Intelligence.jpeg" alt="Certification 4" onclick="openLightbox(3)">
+      </div>
+      <div class="thumbnail">
+        <img src="Intermediate_Python.jpg" alt="Certification 5" onclick="openLightbox(4)">
+      </div>
+      <div class="thumbnail">
+        <img src="Introduction_to_Python.jpg" alt="Certification 6" onclick="openLightbox(5)">
+      </div>
+      <div class="thumbnail">
+        <img src="Introduction_to_Julia.jpg" alt="Certification 7" onclick="openLightbox(6)">
+      </div>
+      <div class="thumbnail">
+        <img src="Understanding_Data_Science.jpg" alt="Certification 8" onclick="openLightbox(7)">
+      </div>
+      <div class="thumbnail">
+        <img src="Introduction_to_Data_Science_in_Python.jpg" alt="Certification 9" onclick="openLightbox(8)">
+      </div>
+      <div class="thumbnail">
+        <img src="Understanding_Machine_Learning.jpg" alt="Certification 10" onclick="openLightbox(9)">
+      </div>
+      <div class="thumbnail">
+        <img src="Understanding_Data_Visualization.jpg" alt="Certification 11" onclick="openLightbox(10)">
+      </div>
+      <div class="thumbnail">
+        <img src="Supervise_Learning_with_scikit-learn.jpg" alt="Certification 12" onclick="openLightbox(11)">
+      </div>
+      <div class="thumbnail">
+        <img src="Introduction_to_chatGPT.jpg" alt="Certification 13" onclick="openLightbox(12)">
+      </div>
+      <div class="thumbnail">
+        <img src="Joining_Data_with_pandas.jpg" alt="Certification 14" onclick="openLightbox(13)">
+      </div>
+      <div class="thumbnail">
+        <img src="Understandin_Data_Engineering.jpg" alt="Certification 15" onclick="openLightbox(14)">
+      </div>
+      <div class="thumbnail">
+        <img src="Python_Data_Science_Toolbox_part_1.jpg" alt="Certification 16" onclick="openLightbox(15)">
+      </div>
+      <div class="thumbnail">
+        <img src="Python_Data_Science_Toolbox_part_2.jpg" alt="Certification 17" onclick="openLightbox(16)">
+      </div>
+      <div class="thumbnail">
+        <img src="Understanding_Cloud_Computing.jpg" alt="Certification 18" onclick="openLightbox(17)">
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox" style="display: none;">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <span class="prev" onclick="showPreviousImage()">&#10094;</span>
+    <span class="next" onclick="showNextImage()">&#10095;</span>
+    <img id="lightbox-image" src="" alt="Enlarged Image">
+  </div>
+
+  <script src="lightbox.js"></script>
+  <script>
+    const images = [
+      'Build_Apps_with_SwiftUI.jpeg',
+      'Practical_Core_Data_in_SwiftUI.jpeg',
+      'The_Complete_2020_Flutter_Bootcamp_with_Dart.jpeg',
+      'Master_Course_in_Tableau_10_&_2019_for_Business_Intelligence.jpeg',
+      'Intermediate_Python.jpg',
+      'Introduction_to_Python.jpg',
+      'Introduction_to_Julia.jpg',
+      'Understanding_Data_Science.jpg',
+      'Introduction_to_Data_Science_in_Python.jpg',
+      'Understanding_Machine_Learning.jpg',
+      'Understanding_Data_Visualization.jpg',
+      'Supervise_Learning_with_scikit-learn.jpg',
+      'Introduction_to_chatGPT.jpg',
+      'Joining_Data_with_pandas.jpg',
+      'Understandin_Data_Engineering.jpg',
+      'Python_Data_Science_Toolbox_part_1.jpg',
+      'Python_Data_Science_Toolbox_part_2.jpg',
+      'Understanding_Cloud_Computing.jpg'
+      // Add more image URLs here
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightbox-image').src = images[index];
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function showPreviousImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      document.getElementById('lightbox-image').src = images[currentIndex];
+    }
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById('lightbox-image').src = images[currentIndex];
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
