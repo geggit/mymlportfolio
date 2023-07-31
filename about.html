@@ -37,6 +37,25 @@
       text-align: left; /* Align the text to the left */
     }
 
+
+
+    .links {
+      display: flex;
+      align-items: flex-end; /* Align items at the bottom */
+    }
+
+    .home-icon {
+      font-size: 48px;
+      margin-right: 5px;
+      margin-bottom: 0; /* Remove the bottom margin */
+    }
+
+
+
+    .links a {
+      margin-right: 40px; /* Add right margin to create space between links */
+    }
+
     h1 {
       font-size: 48px;
       margin-bottom: 10px;
@@ -92,14 +111,16 @@
 <body>
   <div class="container">
     <div class="text-container">
-      <a href="index.html"><i class="fas fa-home home-icon"></i>Home</a>
-      <h1>About</h1>
-      <h1><a href="https://public.tableau.com/app/profile/george2323">Tableau Portfolio</a></h1>
+      <div class="links">
+        <a href="index.html"><i class="fas fa-home home-icon"></i> Home </a>
+        <a href="about.html"> About </a>
+        <a href="https://public.tableau.com/app/profile/george2323"> Tableau-portfolio </a>
+      </div>
       <p>This is my website where I showcase some of the certifications I have earned from various online courses.
         <br>
-        <br>I am passionate about keeping learning and staying updated with the latest advancements
-        in <b>Deep Learning</b>
-        <b>Machine Learning</b>and geenerally in <b>AI</b>.
+        <br>I am passionate about AI. I keep learning continously to stay updated with the latest advancements
+        in <b>Deep Learning, </b>
+        <b>and Machine Learning </b>.
       </p>
     </div>
     <div class="image-container"></div>
